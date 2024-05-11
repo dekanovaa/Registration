@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.css">
+    <title>login</title>
+</head>
+<body>
+    <div class="header">
+        <h1 class="header__tittle">Login Form</h1>
+        <form id="login">
+            <input type="text" id="name" placeholder="Name*" required><br>
+            <label for="name">Please Enter Your Name </label><br>
+            <input type="email" id="email" placeholder="Email*" required><br>
+            <label for="email">Please Enter Your Email</label><br>
+            <input type="tel" id="phone" placeholder="Phone*" required><br>
+            <label for="tel">Please Enter Your Phone</label><br>
+            <select id="subject" placeholder="Subject*" required><br>
+                <option value="matematika">Subject*</option>
+                <option value="fizika">Fizika</option>
+                <option value="kimyo">Kimyo</option>
+                <option value="tarix">Tarix</option>
+              </select><br>
+              <input type="text" id="message" placeholder="Message*" required><br>
+              <a href="index.html">Qayta ro'yhatdan o'tish</a>
+              <button type="submit" id="header__btn">Submit</button>
+        </form>
+    </div>
+
+
+
+
+    <script>
+        let login = document.getElementById("login");
+        let name = document.getElementById("name");
+        let email = document.getElementById("email");
+        let tel = document.getElementById("phone");
+        let select = document.getElementById("subject");
+        let message = document.getElementById("message");
+        let btn = document.getElementById("header__btn");
+        let body = document.querySelector("body");
+
+        login.addEventListener("submit", function(e){
+            e.preventDefault();
+            if(localStorage.getItem("name") === name.value  && localStorage.getItem("email") === email.value ){
+                alert("saytga xush kelibsiz");
+                window.location.href = "sacses.html";
+            } 
+            else{
+                body.style.backgroundColor = "red";
+                alert("Name,email va tel ni tekshiring")
+            }
+        })
+    </script>
+    
+</body>
+</html>
